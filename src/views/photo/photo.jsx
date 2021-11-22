@@ -19,16 +19,22 @@ export default withRouter(({ history }) => {
     const ref = useRef(null);
 
     useEffect(() => {
+        let base64Data = null;
         const video = document.getElementById('video');
+        const cameraBtn = document.getElementById('cameraBtn');
         const rectangle = document.getElementById('capture-rectangle');
         const container = document.getElementById('container');
         const _canvas = document.createElement('canvas');
         _canvas.style.display = 'block';
+        cameraBtn.addEventListener('click', function (e) {
+            startCapture();
+            clearInterval();
+        });
 
         getUserMediaStream(video)
             .then(() => {
                 setVideoHeight(video.offsetHeight);
-                startCapture();
+                // startCapture();
             })
             .catch(err => {
                 showFail({
@@ -68,40 +74,49 @@ export default withRouter(({ history }) => {
         }
 
         function startCapture() {
-            ref.current = setInterval(() => {
-                const { getHeight, getWidth } = getRealSize();
-                /** 获取框的位置 */
-                const { left, top, width, height } = rectangle.getBoundingClientRect();
+            // ref.current = () => {
+            const { getHeight, getWidth } = getRealSize();
+            /** 获取框的位置 */
+            const { left, top, width, height } = rectangle.getBoundingClientRect();
 
-                /** 测试时预览 */
-                if (isChildOf(_canvas, container)) {
-                    container.removeChild(_canvas);
-                }
-                container.appendChild(_canvas);
+            /** 测试时预览 */
+            // if (isChildOf(_canvas, container)) {
+            //     container.removeChild(_canvas);
+            // }
+            // container.appendChild(_canvas);
 
-                const context = _canvas.getContext('2d');
-                _canvas.width = width;
-                _canvas.height = height;
+            const context = _canvas.getContext('2d');
+            _canvas.width = width;
+            _canvas.height = height;
 
-                context.drawImage(
-                    video,
-                    getWidth(left + window.scrollX),
-                    getHeight(top + window.scrollY),
-                    getWidth(width),
-                    getHeight(height),
-                    0,
-                    0,
-                    width,
-                    height,
-                );
+            context.drawImage(
+                video,
+                getWidth(left + window.scrollX),
+                getHeight(top + window.scrollY),
+                getWidth(width),
+                getHeight(height),
+                0,
+                0,
+                width,
+                height,
+            );
 
-                const base64 = _canvas.toDataURL('image/jpeg');
-                // TODO 此处可以根据需要调用OCR识别接口
-            }, 200);
+            base64Data = _canvas.toDataURL('image/jpeg');
+            console.log('base64Data', base64Data);
+            // TODO 此处可以根据需要调用OCR识别接口
+            let img = document.createElement('img');
+            img.setAttribute('id', 'canvasImg');
+            img.src = base64Data;
+            let child = document.getElementById('canvasImg');
+            if (isChildOf(child, container)) {
+                container.removeChild(child);
+            }
+            container.appendChild(img);
+            // };
         }
 
         /** 防止内存泄露 */
-        return () => clearInterval(ref.current);
+        // return () => clearInterval(ref.current);
     }, []);
 
     /** 只支持1张图片 */
@@ -177,6 +192,11 @@ export default withRouter(({ history }) => {
         history.goBack();
     };
 
+    // const onCamera = () => {
+    //     // startCapture();
+    //     clearInterval();
+    // };
+
     return (
         <div id="container" className={styles.container}>
             <LeftOutlined
@@ -200,7 +220,10 @@ export default withRouter(({ history }) => {
                 <div className={styles['hold-tips']}>hold-tips</div>
             </div>
 
-            <div className={styles.tips}>tips</div>
+            {/* <div className={styles.tips}>tips</div> */}
+            <button id="cameraBtn" className={styles['cameraBtn']}>
+                拍照
+            </button>
 
             <div className={styles['gallery-container']}>
                 <CustomUpload {...customUploadProps} />

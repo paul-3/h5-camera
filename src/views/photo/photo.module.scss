@@ -23,7 +23,7 @@
         overflow: hidden;
 
         .capture-rectangle {
-            margin: remB(200) auto 0;
+            margin: remB(100) auto 0;
             width: remB(700);
             height: remB(450);
             // width: remB(350);
@@ -58,9 +58,14 @@
         margin: remB(30) auto 0;
         border-radius: remB(20);
     }
+    .cameraBtn {
+        display: block;
+        margin-bottom: remB(50);
+    }
 
     .gallery-container {
         position: relative;
+        display: none;
         .input {
             position: absolute;
             top: remB(66);
