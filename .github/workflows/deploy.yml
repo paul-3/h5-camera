@@ -1,26 +1,31 @@
-name: Build and Deploy
-on: # 监听 master 分支上的 push 事件
+name: deploy
+
+on:
   push:
-    branches:
-      - master
+    branches: [master] # master 分支有 push 时触发
+
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest # 构建环境使用 ubuntu
+  deploy:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2.3.1
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js v12.x
+        uses: actions/setup-node@v1
         with:
-          persist-credentials: false
+          node-version: '12.x'
 
-      - name: Install and Build # 下载依赖 打包项目
-        run: |
-          npm install
-          npm run build
+      - name: Install
+        run: npm install # 安装依赖
 
-      - name: Deploy # 将打包内容发布到 github page
-        uses: JamesIves/github-pages-deploy-action@3.5.9 # 使用别人写好的 actions
-        with:  # 自定义环境变量
-          ACCESS_TOKEN: ${{ secrets.H5_CAMERA }} # VUE_ADMIN_TEMPLATE 是我的 secret 名称，需要替换成你的
-          FOLDER: build
-          TARGET_FOLDER: github-actions-demo # 打包的文件将放到静态服务器 github-actions-demo 目录下
+      - name: Build
+        run: npm run build # 打包
 
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action
+        with:
+          publish_dir: ./build # 部署打包后的 dist 目录
+          github_token: ${{ secrets.H5_CAMERA }} # secret 名
+          user_name: ${{ secrets.MY_USER_NAME }}
+          user_email: ${{ secrets.MY_USER_EMAIL }}
+          commit_message: h5_camera # 部署时的 git 提交信息，自由填写
