@@ -32,8 +32,8 @@ function getUserMediaStream(videoNode) {
     //调用用户媒体设备，访问摄像头
     return getUserMedia({
         audio: false,
-        // video: { facingMode: { exact: 'environment' } },
-        video: true,
+        video: { facingMode: { exact: 'environment' } },
+        // video: true,
         // video: { facingMode: { exact: 'environment', width: 1280, height: 720 } },
     })
         .then(res => {
