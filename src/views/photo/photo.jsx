@@ -74,10 +74,10 @@ export default withRouter(({ history }) => {
                 const { left, top, width, height } = rectangle.getBoundingClientRect();
 
                 /** 测试时预览 */
-                // if (isChildOf(_canvas, container)) {
-                //     container.removeChild(_canvas);
-                // }
-                // container.appendChild(_canvas);
+                if (isChildOf(_canvas, container)) {
+                    container.removeChild(_canvas);
+                }
+                container.appendChild(_canvas);
 
                 const context = _canvas.getContext('2d');
                 _canvas.width = width;
