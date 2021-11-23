@@ -31,19 +31,19 @@ export default withRouter(({ history }) => {
             startCapture();
             clearInterval();
         });
-        changeBtn.addEventListener('click', function (e) {
-            getUserMediaStream(video, 'user')
-                .then(() => {
-                    setVideoHeight(video.offsetHeight);
-                    // startCapture();
-                })
-                .catch(err => {
-                    showFail({
-                        text: '无法调起后置摄像头，请点击相册，手动上传身份证',
-                        duration: 6,
-                    });
-                });
-        });
+        // changeBtn.addEventListener('click', function (e) {
+        //     getUserMediaStream(video, 'user')
+        //         .then(() => {
+        //             setVideoHeight(video.offsetHeight);
+        //             // startCapture();
+        //         })
+        //         .catch(err => {
+        //             showFail({
+        //                 text: '无法调起后置摄像头，请点击相册，手动上传身份证',
+        //                 duration: 6,
+        //             });
+        //         });
+        // });
 
         getUserMediaStream(video)
             .then(() => {
