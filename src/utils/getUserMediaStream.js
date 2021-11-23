@@ -20,13 +20,13 @@ function success(stream, video) {
     return new Promise((resolve, reject) => {
         video.srcObject = stream;
         //播放视频
-        video.onloadedmetadata = function (e) {
+        video.addEventListener('loadedmetadata', e => {
             alert('123_' + video.getAttribute('id'));
             if (stream.active) {
                 video.play();
                 resolve();
             }
-        };
+        });
     });
 }
 
