@@ -37,11 +37,9 @@ function getUserMediaStream(videoNode, flag = 'environment') {
         video: { facingMode: { exact: 'environment' } },
     })
         .then(res => {
-            alert('success');
             return success(res, videoNode);
         })
         .catch(error => {
-            alert(`fail_${error.message}`);
             console.log('访问用户媒体设备失败：', error.name, error.message);
             return Promise.reject();
         });
