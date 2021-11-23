@@ -32,14 +32,16 @@ function getUserMediaStream(videoNode) {
     //调用用户媒体设备，访问摄像头
     return getUserMedia({
         audio: false,
-        // video: { facingMode: { exact: 'environment' } },
-        video: true,
+        video: { facingMode: { exact: 'environment' } },
+        // video: true,
         // video: { facingMode: { exact: 'environment', width: 1280, height: 720 } },
     })
         .then(res => {
+            alert('success');
             return success(res, videoNode);
         })
         .catch(error => {
+            alert(`fail_${error.message}`);
             console.log('访问用户媒体设备失败：', error.name, error.message);
             return Promise.reject();
         });
