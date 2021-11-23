@@ -22,8 +22,10 @@ function success(stream, video) {
 
         //播放视频
         video.onloadedmetadata = function (e) {
-            video.play();
-            resolve();
+            if (stream.active) {
+                video.play();
+                resolve();
+            }
         };
     });
 }
