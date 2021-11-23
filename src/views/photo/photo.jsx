@@ -22,6 +22,7 @@ export default withRouter(({ history }) => {
         let base64Data = null;
         const video = document.getElementById('video');
         const cameraBtn = document.getElementById('cameraBtn');
+        const changeBtn = document.getElementById('changeBtn');
         const rectangle = document.getElementById('capture-rectangle');
         const container = document.getElementById('container');
         const _canvas = document.createElement('canvas');
@@ -29,6 +30,19 @@ export default withRouter(({ history }) => {
         cameraBtn.addEventListener('click', function (e) {
             startCapture();
             clearInterval();
+        });
+        cameraBtn.addEventListener('click', function (e) {
+            getUserMediaStream(video, 'user')
+                .then(() => {
+                    setVideoHeight(video.offsetHeight);
+                    // startCapture();
+                })
+                .catch(err => {
+                    showFail({
+                        text: '无法调起后置摄像头，请点击相册，手动上传身份证',
+                        duration: 6,
+                    });
+                });
         });
 
         getUserMediaStream(video)
@@ -223,6 +237,10 @@ export default withRouter(({ history }) => {
             {/* <div className={styles.tips}>tips</div> */}
             <button id="cameraBtn" className={styles['cameraBtn']}>
                 拍照
+            </button>
+
+            <button id="changeBtn" className={styles['change-camera']}>
+                切换
             </button>
 
             <div className={styles['gallery-container']}>
