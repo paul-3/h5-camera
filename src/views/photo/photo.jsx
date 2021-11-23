@@ -31,7 +31,7 @@ export default withRouter(({ history }) => {
             startCapture();
             clearInterval();
         });
-        cameraBtn.addEventListener('click', function (e) {
+        changeBtn.addEventListener('click', function (e) {
             getUserMediaStream(video, 'user')
                 .then(() => {
                     setVideoHeight(video.offsetHeight);
