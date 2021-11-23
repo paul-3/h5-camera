@@ -19,9 +19,9 @@ function getUserMedia(constrains) {
 function success(stream, video) {
     return new Promise((resolve, reject) => {
         video.srcObject = stream;
-        alert(video.getAttribute('id'));
         //播放视频
         video.onloadedmetadata = function (e) {
+            alert('123_' + video.getAttribute('id'));
             if (stream.active) {
                 video.play();
                 resolve();
