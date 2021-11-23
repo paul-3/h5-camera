@@ -34,7 +34,7 @@ function getUserMediaStream(videoNode, flag = 'environment') {
         audio: false,
         // video: { facingMode: { exact: flag } },
         // video: true,
-        video: { facingMode: { exact: 'user', width: 1280, height: 720 } },
+        video: { facingMode: { exact: 'environment', width: 1280, height: 720 } },
     })
         .then(res => {
             alert('success');
