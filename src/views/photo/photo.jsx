@@ -223,6 +223,7 @@ export default withRouter(({ history }) => {
                 autoPlay
                 muted
                 playsInline
+                x5VideoPlayerType="h5"
                 style={{
                     width: '100%',
                 }}
