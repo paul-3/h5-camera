@@ -19,7 +19,7 @@ function getUserMedia(constrains) {
 function success(stream, video) {
     return new Promise((resolve, reject) => {
         video.srcObject = stream;
-        alert(stream, video);
+        alert(video.getAttribute('id'));
         //播放视频
         video.onloadedmetadata = function (e) {
             if (stream.active) {
