@@ -20,13 +20,12 @@ function success(stream, video) {
     return new Promise((resolve, reject) => {
         video.srcObject = stream;
         //播放视频
-        video.addEventListener('loadedmetadata', e => {
-            alert('123_' + video.getAttribute('id'));
+        video.onloadedmetadata = function (e) {
             if (stream.active) {
                 video.play();
                 resolve();
             }
-        });
+        };
     });
 }
 
@@ -36,7 +35,7 @@ function getUserMediaStream(videoNode, flag = 'environment') {
         audio: false,
         // video: { facingMode: { exact: flag } },
         // video: true,
-        video: { facingMode: { exact: 'environment' } },
+        video: { facingMode: { exact: 'environment' }, focusMode: { ideal: 'continuous' } },
     })
         .then(res => {
             return success(res, videoNode);
