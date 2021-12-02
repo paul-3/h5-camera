@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/h5-camera/static/css/main.93f70ebd.chunk.css",
-    "main.js": "/h5-camera/static/js/main.ccec4d92.chunk.js",
-    "main.js.map": "/h5-camera/static/js/main.ccec4d92.chunk.js.map",
+    "main.css": "/h5-camera/static/css/main.b015b891.chunk.css",
+    "main.js": "/h5-camera/static/js/main.1498a89e.chunk.js",
+    "main.js.map": "/h5-camera/static/js/main.1498a89e.chunk.js.map",
     "runtime-main.js": "/h5-camera/static/js/runtime-main.61dc90a1.js",
     "runtime-main.js.map": "/h5-camera/static/js/runtime-main.61dc90a1.js.map",
     "static/css/2.e5a897ab.chunk.css": "/h5-camera/static/css/2.e5a897ab.chunk.css",
-    "static/js/2.7df0f86b.chunk.js": "/h5-camera/static/js/2.7df0f86b.chunk.js",
-    "static/js/2.7df0f86b.chunk.js.map": "/h5-camera/static/js/2.7df0f86b.chunk.js.map",
+    "static/js/2.dde947bb.chunk.js": "/h5-camera/static/js/2.dde947bb.chunk.js",
+    "static/js/2.dde947bb.chunk.js.map": "/h5-camera/static/js/2.dde947bb.chunk.js.map",
     "index.html": "/h5-camera/index.html",
     "static/css/2.e5a897ab.chunk.css.map": "/h5-camera/static/css/2.e5a897ab.chunk.css.map",
-    "static/css/main.93f70ebd.chunk.css.map": "/h5-camera/static/css/main.93f70ebd.chunk.css.map",
-    "static/js/2.7df0f86b.chunk.js.LICENSE.txt": "/h5-camera/static/js/2.7df0f86b.chunk.js.LICENSE.txt"
+    "static/css/main.b015b891.chunk.css.map": "/h5-camera/static/css/main.b015b891.chunk.css.map",
+    "static/js/2.dde947bb.chunk.js.LICENSE.txt": "/h5-camera/static/js/2.dde947bb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.61dc90a1.js",
     "static/css/2.e5a897ab.chunk.css",
-    "static/js/2.7df0f86b.chunk.js",
-    "static/css/main.93f70ebd.chunk.css",
-    "static/js/main.ccec4d92.chunk.js"
+    "static/js/2.dde947bb.chunk.js",
+    "static/css/main.b015b891.chunk.css",
+    "static/js/main.1498a89e.chunk.js"
   ]
 }
