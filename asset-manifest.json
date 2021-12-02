@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/h5-camera/static/css/main.b015b891.chunk.css",
-    "main.js": "/h5-camera/static/js/main.8b6a07b2.chunk.js",
-    "main.js.map": "/h5-camera/static/js/main.8b6a07b2.chunk.js.map",
+    "main.js": "/h5-camera/static/js/main.6d39e1bc.chunk.js",
+    "main.js.map": "/h5-camera/static/js/main.6d39e1bc.chunk.js.map",
     "runtime-main.js": "/h5-camera/static/js/runtime-main.61dc90a1.js",
     "runtime-main.js.map": "/h5-camera/static/js/runtime-main.61dc90a1.js.map",
     "static/css/2.e5a897ab.chunk.css": "/h5-camera/static/css/2.e5a897ab.chunk.css",
@@ -18,6 +18,6 @@
     "static/css/2.e5a897ab.chunk.css",
     "static/js/2.dde947bb.chunk.js",
     "static/css/main.b015b891.chunk.css",
-    "static/js/main.8b6a07b2.chunk.js"
+    "static/js/main.6d39e1bc.chunk.js"
   ]
 }
