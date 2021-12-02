@@ -41,7 +41,7 @@ function getUserMediaStream(videoNode, flag = 'environment') {
             return success(res, videoNode);
         })
         .catch(error => {
-            console.log('访问用户媒体设备失败：', error.name, error.message);
+            alert('访问用户媒体设备失败：', error.name, error.message);
             return Promise.reject();
         });
 }

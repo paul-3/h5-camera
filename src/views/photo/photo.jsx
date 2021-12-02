@@ -135,6 +135,7 @@ export default withRouter(({ history }) => {
 
   /** 只支持1张图片 */
   function updateUploadFiles(url) {
+    alert('url', url);
     let files = [];
     if (url) {
       files = [{ url }];
@@ -166,6 +167,7 @@ export default withRouter(({ history }) => {
         }
       })
       .then(res => {
+        alert('res', res)
         hideLoading();
         updateUploadFiles();
         // TODO 上传
