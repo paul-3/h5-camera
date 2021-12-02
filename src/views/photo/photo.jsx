@@ -148,6 +148,7 @@ export default withRouter(({ history }) => {
     const handleImgFileBase64 = file => {
       return new Promise(resolve => {
         const reader = new FileReader();
+        alert('reader', typeof file);
         reader.readAsDataURL(file);
 
         reader.onloadend = function () {
@@ -159,6 +160,7 @@ export default withRouter(({ history }) => {
     showLoading();
     handleImgFileBase64(file)
       .then(res => {
+        alert('file', file.size);
         if (file.size > 750 * 1334) {
           showLoading('图片压缩中...');
           return startCompress(res);
