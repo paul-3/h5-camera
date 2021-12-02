@@ -135,7 +135,7 @@ export default withRouter(({ history }) => {
 
   /** 只支持1张图片 */
   function updateUploadFiles(url) {
-    alert('url', url);
+    // alert('url', url);
     let files = [];
     if (url) {
       files = [{ url }];
@@ -148,7 +148,7 @@ export default withRouter(({ history }) => {
     const handleImgFileBase64 = file => {
       return new Promise(resolve => {
         const reader = new FileReader();
-        alert('reader', typeof file);
+        // alert('reader', typeof file);
         reader.readAsDataURL(file);
 
         reader.onloadend = function () {
@@ -160,7 +160,7 @@ export default withRouter(({ history }) => {
     showLoading();
     handleImgFileBase64(file)
       .then(res => {
-        alert('file', file.size);
+        // alert('file', file.size);
         if (file.size > 750 * 1334) {
           showLoading('图片压缩中...');
           return startCompress(res);
@@ -169,7 +169,7 @@ export default withRouter(({ history }) => {
         }
       })
       .then(res => {
-        alert('res', res)
+        // alert('res', res)
         hideLoading();
         updateUploadFiles();
         // TODO 上传
@@ -189,6 +189,7 @@ export default withRouter(({ history }) => {
   const onChangeFile = event => {
     const files = event.target.files;
     if (files?.[0]) {
+      alert('come in')
       __formatUploadFile2base64AndCompress(files[0]);
     }
   };
